@@ -4,7 +4,7 @@ This project for the Udacity React Fundamentals course is a book tracking applic
 
 ## Instructions for running
 
-Clone this repository, load it into you favorite IDE and in a terminal window type in "npm start".  This should place you into a browser with the shelf page loaded.
+Clone this repository, load it into you favorite IDE and in a terminal window type in "npm install" and then "npm start".  This should place you into a browser with the shelf page loaded.
 
 ## How I started
 
