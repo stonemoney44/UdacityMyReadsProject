@@ -62,4 +62,4 @@ Issue 3 : The prior search results are shown. Books are shown when all text is d
     Fix: Check the search value.  If there is an empty string, set the search result to an empty array
 
 Issue 4 : The main and search page books don't have the same book shelf state. Please see the comment above and in the code review.
-    I thing the above fix is from Issue three covers this.
+    I think the above fix is from Issue three covers this.
