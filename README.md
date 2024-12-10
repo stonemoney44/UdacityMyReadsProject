@@ -48,7 +48,7 @@ Does the search page have a search input that allows users to search for books?
   - yes
 
 
-## Code Review (iteration #1)
+## Code Review fixes (iteration #1)
 Issue 1 : Authors were not showing on the main page:
     Problem: Misspelled the property name from author to authors
     Fix: spell it correctly
@@ -56,3 +56,10 @@ Issue 1 : Authors were not showing on the main page:
 Issue 2 : If a book is assigned to a shelf on the main page and that book appears on the search page, the correct shelf is NOT selected on the search page
     Problem: Misunderstanding of the BookAPI.  Assumed that when the BookAPI.update method was called it would update the repository so that the search endpoint would return the shelf property of the book object.
     Fix: pass the books object so that the shelf property of the book object could be added to the books in the search response object
+
+Issue 3 : The prior search results are shown. Books are shown when all text is deleted from the search input box
+    Problem: When checking for a search value, we are not handling when there is no value in the text search.
+    Fix: Check the search value.  If there is an empty string, set the search result to an empty array
+
+Issue 4 : The main and search page books don't have the same book shelf state. Please see the comment above and in the code review.
+    I thing the above fix is from Issue three covers this.
