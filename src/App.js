@@ -10,9 +10,6 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
 
   const updateBook = async (updateBook, newShelf) => {
-    setBooks(prevBook => prevBook.map(book => 
-      book.id === updateBook.id ? { ...book, shelf: newShelf } : book
-      ));
 
     await BooksAPI.update(updateBook, newShelf);
     getBooks();
@@ -57,7 +54,7 @@ const App = () => {
         </Route>
         <Route
           path="/search"
-          element={<SearchBooks updateSearchText={updateSearchText} updateBook={updateBook}/>}>
+          element={<SearchBooks books={books} updateSearchText={updateSearchText} updateBook={updateBook}/>}>
         </Route>
       </Routes>
     </div>

@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 
 const Book = ({book, updateBook}) => {
-    var imageBackground = ''
-    
+    var imageBackground = '';
+
     try {
         imageBackground = book.imageLinks.thumbnail;
     } catch {
@@ -26,7 +26,7 @@ const Book = ({book, updateBook}) => {
                     <BookshelfChanger book={book} updateBook={updateBook} />
                 </div>
                 <div className="book-title">{book.title}</div>
-                <div className="book-authors">{book.author}</div>
+                <div className="book-authors">{book.authors}</div>
             </div>
     )
 };

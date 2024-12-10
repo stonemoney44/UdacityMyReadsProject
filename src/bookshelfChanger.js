@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const BookshelfChanger = ({book, updateBook}) => {
     if (book.shelf === undefined){
-        book.shelf = "none"
+        book.shelf = "moveTo"
     }
 
     const handleChange = (event => {
@@ -12,7 +12,7 @@ const BookshelfChanger = ({book, updateBook}) => {
     return (
         <div className="book-shelf-changer">
             <select value={book.shelf} onChange={handleChange}>
-                <option value="none" disabled>Move to...</option>
+                <option value="moveTo" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>

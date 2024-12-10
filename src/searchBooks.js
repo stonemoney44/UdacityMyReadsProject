@@ -5,9 +5,12 @@ import * as BooksAPI from "./BooksAPI"
 import PropTypes from "prop-types";
 
 
-const SearchBooks = ({updateBook}) => {
+const SearchBooks = ({books, updateBook}) => {
     const [searchBooks, setSearchBooks] = useState([]);
     const [searchText, setSearchText] = useState('');
+
+    books.map((book) => {
+    })
 
     const handleChange = (event => {
         setSearchText(event.target.value);
@@ -17,12 +20,24 @@ const SearchBooks = ({updateBook}) => {
         const searchBooks = async () => {
           if (searchText !== '') {
             const res = await BooksAPI.search(searchText, 100);
-            setSearchBooks(res);
+
+            var combinedBookObject = res.map(searchBook => {
+                var book = books.find((book) => book.id === searchBook.id);
+                if (book === undefined){
+                    return searchBook
+                } else {
+                    return Object.assign(searchBook, {shelf: book.shelf});      
+                }
+            });
+
+            setSearchBooks(combinedBookObject);
+          } else {
+            setSearchBooks([]);
           }
         };
     
         searchBooks();
-      }, [searchText]);
+      }, [searchText, books]);
 
     return (
         <div className="search-books">

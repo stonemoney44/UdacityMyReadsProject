@@ -46,3 +46,13 @@ Does the search page have a search input that allows users to search for books?
   - yes
 - Does the code run without errors? Is the code free of warnings that resulted from not following the best practices listed in the documentation (e.g., a key for list items)? Is the code formatted properly?
   - yes
+
+
+## Code Review (iteration #1)
+Issue 1 : Authors were not showing on the main page:
+    Problem: Misspelled the property name from author to authors
+    Fix: spell it correctly
+
+Issue 2 : If a book is assigned to a shelf on the main page and that book appears on the search page, the correct shelf is NOT selected on the search page
+    Problem: Misunderstanding of the BookAPI.  Assumed that when the BookAPI.update method was called it would update the repository so that the search endpoint would return the shelf property of the book object.
+    Fix: pass the books object so that the shelf property of the book object could be added to the books in the search response object
