@@ -20,17 +20,21 @@ const SearchBooks = ({books, updateBook}) => {
         const searchBooks = async () => {
           if (searchText !== '') {
             const res = await BooksAPI.search(searchText, 100);
-
-            var combinedBookObject = res.map(searchBook => {
-                var book = books.find((book) => book.id === searchBook.id);
-                if (book === undefined){
-                    return searchBook
-                } else {
-                    return Object.assign(searchBook, {shelf: book.shelf});      
-                }
-            });
-
-            setSearchBooks(combinedBookObject);
+            if (res.length > 0){
+                var combinedBookObject = res.map(searchBook => {
+                    var book = books.find((book) => book.id === searchBook.id);
+                    if (book === undefined){
+                        return searchBook
+                    } else {
+                        return Object.assign(searchBook, {shelf: book.shelf});      
+                    }
+                });
+    
+                setSearchBooks(combinedBookObject);
+            } else {
+                setSearchBooks([]);    
+            }
+            
           } else {
             setSearchBooks([]);
           }

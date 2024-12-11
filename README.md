@@ -63,3 +63,8 @@ Issue 3 : The prior search results are shown. Books are shown when all text is d
 
 Issue 4 : The main and search page books don't have the same book shelf state. Please see the comment above and in the code review.
     I think the above fix is from Issue three covers this.
+
+## Code Review fixes (iteration #2)
+Issue 1 : When the search page call to the API returns no results, the page is showing an error.
+    Problem : "map" does not work on an empty array
+    Fix : check the result from the api call for values before map is call.  Set the book list to empty for no books returned.

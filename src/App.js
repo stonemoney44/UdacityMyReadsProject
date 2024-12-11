@@ -25,17 +25,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    const searchBooks = async () => {
-      if (searchText !== '') {
-        const res = await BooksAPI.search(searchText, 100);
-        setBooks(res);
-      }
-    };
-
-    searchBooks();
-  }, [searchText]);
-
-  useEffect(() => {
     getBooks();
   }, []);
 
